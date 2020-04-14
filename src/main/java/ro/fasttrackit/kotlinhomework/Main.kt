@@ -1,0 +1,48 @@
+package ro.fasttrackit.kotlinhomework
+
+fun main() {
+    val service = PersonService()
+
+    service.addPerson(Person("Andrei", "Pop", 70, "Oradea"))
+    service.addPerson(Person("Maria", "Gal", 67, "Beius"))
+    service.addPerson(Person("Anamaria", "Tudorache", 15, "Constanta"))
+    service.addPerson(Person("Ioan", "Bogdan", 19, "Oradea"))
+    service.addPerson(Person("Augustin", "Popescu", 17, "Cluj"))
+    service.addPerson(Person("Iuliana", "Nagy", 50, "Cluj"))
+    service.addPerson(Person("Ecaterina", "Albu", 44, "Oradea"))
+    service.addPerson(Person("Ioan", "Stancu", 55, "Timisoana"))
+    service.addPerson(Person("Ioan", "Anghelescu", 16, "Arad"))
+    service.addPerson(Person("Andrei", "Muresan", 62, "Bucuresti"))
+    service.addPerson(Person("Anamaria", "Tudorache", 36, "Iasi"))
+    service.addPerson(Person("Ecaterina", "Albu", 40, "Buzau"))
+
+    println("\n" + service.getAllNames())
+    separator()
+    println(service.getMajorPersons())
+    separator()
+    println(service.personsFromOradea())
+    separator()
+    println(service.personsFromOradeaAndCluj())
+    separator()
+    println(service.capitalizedFirstNames())
+    separator()
+    println(service.formattedNames())
+    separator()
+    println(service.personsWithinAgeRange())
+    separator()
+    println(service.firstNamesStartingWithA())
+    separator()
+    println(service.uniqueFirstNames())
+    separator()
+    println(service.sortByFirstName())
+    separator()
+    println(service.sortByLastName())
+    separator()
+    println(service.completeSort())
+    separator()
+    println(service.firstNamesStartingWithLetter('M'))
+    separator()
+}
+
+fun separator() = println("===========================================================================================" +
+        "=============================================================================================================")
