@@ -45,6 +45,11 @@ internal class PersonServiceTest {
     fun `WHEN full names are requested THEN list of names is returned`() {
         assertThat(service.getAllNames().size).isEqualTo(12)
         assertThat(service.getAllNames()[0]).isEqualTo("Andrei Pop")
+
+//        val names = service.getAllNames()
+//        assertThat(service.getAllPersons()).extracting("firstName", "lastName").containsExactly("Andrei Pop, Maria Gal, " +
+//                "Anamaria Tudorache, Ioan Bogdan, Augustin Popescu, Iuliana Nagy, Ecaterina Albu, " +
+//                "Ioan Stancu, Ioan Anghelescu, Andrei Muresan, Anamaria Tudorache, Ecaterina Albu")
     }
 
     @Test
@@ -118,22 +123,6 @@ internal class PersonServiceTest {
         val testService = PersonService()
         testService.addPerson(Person("Andrei", "Muresan", 14, "Bucuresti"))
         testService.addPerson(Person("Anamaria", "Tudorache", 17, "Iasi"))
-        testService.addPerson(Person("Ecaterina", "Albu", 16, "Buzau"))
-
-        assertTrue { testService.personsWithinAgeRange().isEmpty() }
-    }
-
-    @Test
-    fun `WHEN persons with first name starting with A are found THEN list is returned`() {
-        assertThat(service.firstNamesStartingWithA().size).isEqualTo(5)
-        assertThat(service.firstNamesStartingWithA()[0]).isEqualTo(service.getAllPersons()[0])
-    }
-
-    @Test
-    fun `WHEN no people with first name starting with A are found THEN empty list is returned`() {
-        val testService = PersonService()
-        testService.addPerson(Person("Robert", "Muresan", 14, "Bucuresti"))
-        testService.addPerson(Person("Denisa", "Tudorache", 17, "Iasi"))
         testService.addPerson(Person("Ecaterina", "Albu", 16, "Buzau"))
 
         assertTrue { testService.personsWithinAgeRange().isEmpty() }

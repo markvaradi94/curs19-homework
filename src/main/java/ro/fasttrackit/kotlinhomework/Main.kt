@@ -30,8 +30,6 @@ fun main() {
     separator()
     println(service.personsWithinAgeRange())
     separator()
-    println(service.firstNamesStartingWithA())
-    separator()
     println(service.uniqueFirstNames())
     separator()
     println(service.sortByFirstName())
@@ -40,7 +38,7 @@ fun main() {
     separator()
     println(service.completeSort())
     separator()
-    println(service.firstNamesStartingWithLetter('M'))
+    println(service.firstNamesStartingWithLetter('a'))
     separator()
 }
 

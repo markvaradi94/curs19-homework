@@ -25,8 +25,7 @@ public class Main {
         System.out.println(service.capitalizedFirstNames() + "\n");
         System.out.println(service.formattedNames() + "\n");
         System.out.println(service.withinAgeRange() + "\n");
-        System.out.println(service.firstNameStartingWithLetter('I') + "\n");
-        System.out.println(service.firstNamesWithA() + "\n");
+        System.out.println(service.firstNameStartingWithLetter('a') + "\n");
         System.out.println(service.uniqueFirstNames() + "\n");
         System.out.println(service.sortedByFirstName() + "\n");
         System.out.println(service.sortedByLastName() + "\n");

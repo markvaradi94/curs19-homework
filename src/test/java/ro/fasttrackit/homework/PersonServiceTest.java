@@ -50,6 +50,11 @@ class PersonServiceTest {
     void getAllNames() {
         assertThat(service.getAllNames().size()).isEqualTo(12);
         assertThat(service.getAllNames().get(0)).isEqualTo("Maria Gal");
+
+//        var names = service.getAllNames();
+//        assertThat(names).extracting("firstName").containsExactlyInAnyOrder("Maria Gal, Anamaria Tudorache, " +
+//                "Ioan Bogdan, Augustin Popescu, Andrei Pop, Iuliana Nagy, Ecaterina Albu, Ioan Stancu, Ioan Anghelescu, " +
+//                "Andrei Muresan, Anamaria Tudorache, Ecaterina Albu");
     }
 
     @Test
@@ -136,24 +141,6 @@ class PersonServiceTest {
         testService.addPerson(new Person("Ecaterina", "Albu", 75, "Buzau"));
 
         assertThat(testService.withinAgeRange()).isEmpty();
-    }
-
-    @Test
-    @DisplayName("WHEN persons with first name starting with A are found THEN list is returned")
-    void firstNamesWithA() {
-        assertThat(service.firstNamesWithA().size()).isEqualTo(5);
-        assertThat(service.firstNamesWithA().get(0)).isEqualTo(service.getPeople().get(1));
-    }
-
-    @Test
-    @DisplayName("WHEN no people with first name starting with A are found THEN empty list is returned")
-    void noFirstNamesWithAFound() {
-        PersonService testService = new PersonService();
-        testService.addPerson(new Person("Marius", "Muresan", 15, "Bucuresti"));
-        testService.addPerson(new Person("Daria", "Tudorache", 17, "Iasi"));
-        testService.addPerson(new Person("Ecaterina", "Albu", 75, "Buzau"));
-
-        assertThat(testService.firstNamesWithA()).isEmpty();
     }
 
     @Test

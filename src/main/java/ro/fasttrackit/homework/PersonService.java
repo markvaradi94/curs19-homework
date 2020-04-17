@@ -20,7 +20,7 @@ public class PersonService {
     }
 
     public List<Person> getPeople() {
-        return people;
+        return new ArrayList<>(people);
     }
 
     public List<String> getAllNames() {
@@ -37,13 +37,13 @@ public class PersonService {
 
     public List<Person> personsFromOradea() {
         return people.stream()
-                .filter(this::isFromOradea)
+                .filter(person -> isFrom(person, "oradea"))
                 .collect(toList());
     }
 
     public List<Person> fromOradeaOrCluj() {
         return people.stream()
-                .filter(this::isFromOradeaOrCluj)
+                .filter(person -> isFrom(person, "oradea") || isFrom(person, "cluj"))
                 .collect(toList());
     }
 
@@ -62,12 +62,6 @@ public class PersonService {
     public List<Person> withinAgeRange() {
         return people.stream()
                 .filter(this::isInAgeRange)
-                .collect(toList());
-    }
-
-    public List<Person> firstNamesWithA() {
-        return people.stream()
-                .filter(this::firstNameStartsWithA)
                 .collect(toList());
     }
 
@@ -115,19 +109,11 @@ public class PersonService {
         return person.getAge() > 18 && person.getAge() < 60;
     }
 
-    private boolean isFromOradea(Person person) {
-        return person.getCity().equalsIgnoreCase("oradea");
-    }
-
-    private boolean isFromOradeaOrCluj(Person person) {
-        return person.getCity().equalsIgnoreCase("oradea") || person.getCity().equalsIgnoreCase("cluj");
+    private boolean isFrom(Person person, String city) {
+        return person.getCity().equalsIgnoreCase(city);
     }
 
     private boolean firstNameStartsWithLetter(Person person, char letter) {
         return person.getFirstName().toLowerCase().charAt(0) == letter || person.getFirstName().toUpperCase().charAt(0) == letter;
-    }
-
-    private boolean firstNameStartsWithA(Person person) {
-        return person.getFirstName().toLowerCase().charAt(0) == 'a';
     }
 }
